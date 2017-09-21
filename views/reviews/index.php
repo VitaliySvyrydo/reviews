@@ -14,23 +14,6 @@
     </div>
 
     <div class="container">
-        <form  id="needs-validation" novalidate>
-            <div class="row justify-content-md-center">
-                <div class="col-md-6 mb-3">
-                    <label for="validationCustom01">First name</label>
-                    <input type="text" class="form-control" id="validationCustom01" placeholder="First name" value="Mark" required>
-                </div>
-            </div>
-            <div class="row justify-content-md-center">
-                <div class="col-md-6 mb-3">
-                    <label for="validationCustom02">Last name</label>
-                    <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" value="Otto" required>
-                </div>
-            </div>
-            <div class="row justify-content-md-center">
-                <button class="btn btn-primary" type="submit">Submit form</button>
-            </div>
-        </form>
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -61,7 +44,37 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
-    <form action="add" method="post"">
+            <form  action="add" method="post" id="needs-validation" novalidate>
+                <div class="row justify-content-md-center">
+                    <div class="col-md-6 mb-3">
+                        <label for="validationCustom01">Ваше имя</label>
+                        <input type="text" name="name" class="form-control" id="validationCustom01" placeholder="Имя" required>
+                    </div>
+                </div>
+                <div class="row justify-content-md-center">
+                    <div class="col-md-6 mb-3">
+                        <label for="validationCustom02">Ваша фамилия</label>
+                        <input type="text" name="surname" class="form-control" id="validationCustom02" placeholder="Фамилия" required>
+                    </div>
+                </div>
+                <div class="row justify-content-md-center">
+                    <div class="col-md-6 mb-3">
+                        <label for="validationCustom01">Ваш e-mail</label>
+                        <input type="email" name="email" class="form-control" id="validationCustom01" placeholder="Е-mail" required>
+                    </div>
+                </div>
+                <div class="row justify-content-md-center">
+                    <div class="col-md-6 mb-3">
+                        <label for="validationCustom02">Введите сообщение</label>
+                        <textarea type="text" name="content" class="form-control" id="validationCustom02" placeholder="Сообщение" rows="3" required></textarea>
+                    </div>
+                </div>
+                <div class="row justify-content-md-center">
+                    <button class="btn btn-primary" name="submit" type="submit">Оставить отзыв</button>
+                </div>
+            </form>
+
+<!--    <form action="add" method="post"">
             <div class="col-md-6 mb-3">
                 <label for="validationDefault01">Ваше имя</label>
                 <input type="text" name="name" class="form-control" id="validationDefault01" placeholder="Ваше имя" value="" required>
@@ -81,7 +94,6 @@
 
         <button class="btn btn-primary" name="submit" type="submit">Оставить отзыв</button>
 
-    </form>
+    </form>-->
     </div>
-
 <?php include_once ROOT.'/views/layouts/footer.php';?>

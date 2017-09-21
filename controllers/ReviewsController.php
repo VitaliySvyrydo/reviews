@@ -1,7 +1,4 @@
 <?php
-
-include_once ROOT.'/models/Reviews.php';
-
 class ReviewsController
 {
     /**
@@ -21,7 +18,6 @@ class ReviewsController
      * @return bool
      */
     public function actionAddReviews()
-
     {
         $message = 'error';
         if(isset($_POST['submit'])){
@@ -29,9 +25,7 @@ class ReviewsController
             $surname = $_POST['surname'];
             $email = $_POST['email'];
             $content = $_POST['content'];
-
             $result = Reviews::addReviews($name, $surname, $email, $content);
-
             if($result){
                 $message = 'success';
             }

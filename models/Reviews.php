@@ -1,5 +1,4 @@
 <?php
-include_once ROOT.'/components/DB.php';
 class Reviews
 {
     /**
