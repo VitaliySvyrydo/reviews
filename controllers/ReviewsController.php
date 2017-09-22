@@ -19,27 +19,17 @@ class ReviewsController
      */
     public function actionAddReviews()
     {
-        $message = 'error';
         if(isset($_POST['submit']))
         {
-            $name = $_POST['name'];
-            $surname = $_POST['surname'];
-            $email = $_POST['email'];
-            $content = $_POST['content'];
-            Validator::clean($name);
-            Validator::clean($surname);
-            Validator::clean($email);
-            Validator::clean($content);
-            if (Validator::Validation($name, $surname, $email, $content)) ;
-            {
-                $result = Reviews::addReviews($name, $surname, $email, $content);
-                if ($result)
-                {
-                    $message = 'success';
-                }
+            $validator = new Validator();
+            $data = $_POST;
+            $data = $validator->clean($data);
+            $resultValidation = $validator->validation($data['name'], $data['surname'], $data['email'], $data['content']);
+            if ($resultValidation['status'] === 1){
+                $result = Reviews::addReviews($data['name'], $data['surname'], $data['email'], $data['content']);
             }
+            header("Location: /?message=".$resultValidation['message'].'&status='.$resultValidation['status']);
         }
-         header("Location: /?message=".$message);
     }
 
 }

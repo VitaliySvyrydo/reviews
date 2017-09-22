@@ -35,7 +35,6 @@ class Reviews
         $result->bindParam(':name', $name, PDO::PARAM_STR);
         $result->bindParam(':surname',$surname , PDO::PARAM_STR);
         $result->bindParam(':email', $email, PDO::PARAM_STR);
-        $result->execute();
         if($result->execute()){
             $userID = $db->lastInsertId();
             $sqlReviewStr = 'INSERT INTO reviews (content, author_id) '. 'VALUES (:content, :author_id)';
