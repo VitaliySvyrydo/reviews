@@ -20,14 +20,23 @@ class ReviewsController
     public function actionAddReviews()
     {
         $message = 'error';
-        if(isset($_POST['submit'])){
+        if(isset($_POST['submit']))
+        {
             $name = $_POST['name'];
             $surname = $_POST['surname'];
             $email = $_POST['email'];
             $content = $_POST['content'];
-            $result = Reviews::addReviews($name, $surname, $email, $content);
-            if($result){
-                $message = 'success';
+            Validator::clean($name);
+            Validator::clean($surname);
+            Validator::clean($email);
+            Validator::clean($content);
+            if (Validator::Validation($name, $surname, $email, $content)) ;
+            {
+                $result = Reviews::addReviews($name, $surname, $email, $content);
+                if ($result)
+                {
+                    $message = 'success';
+                }
             }
         }
          header("Location: /?message=".$message);
