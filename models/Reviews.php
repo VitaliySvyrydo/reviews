@@ -8,15 +8,15 @@ class Reviews
     {
         $db = DB::getConnection();
         $reviewsList = array();
-        $result = $db->query('SELECT name,surname,content FROM users,reviews WHERE users.id = reviews.author_id');
+        $result = $db->query('SELECT name,surname,content,author_id FROM users,reviews WHERE users.id = reviews.author_id');
         $i = 0;
         while($row = $result->fetch()){
             $reviewsList[$i] ['name'] = $row['name'];
             $reviewsList[$i] ['surname'] = $row['surname'];
             $reviewsList[$i] ['content'] = $row['content'];
+            $reviewsList[$i] ['image'] = Users::getImage($row['author_id']);
             $i++;
         }
-
         return $reviewsList;
     }
 
@@ -27,22 +27,13 @@ class Reviews
      * @param $content
      * @return bool
      */
-    public static function addReviews($name, $surname, $email, $content)
+    public static function addReviews($userID, $content)
     {
         $db = DB::getConnection();
-        $sqlUserStr = 'INSERT INTO users (name, surname, email) '. 'VALUES (:name, :surname, :email )';
-        $result = $db->prepare($sqlUserStr);
-        $result->bindParam(':name', $name, PDO::PARAM_STR);
-        $result->bindParam(':surname',$surname , PDO::PARAM_STR);
-        $result->bindParam(':email', $email, PDO::PARAM_STR);
-        if($result->execute()){
-            $userID = $db->lastInsertId();
-            $sqlReviewStr = 'INSERT INTO reviews (content, author_id) '. 'VALUES (:content, :author_id)';
-            $result = $db->prepare($sqlReviewStr);
-            $result->bindParam(':content', $content, PDO::PARAM_STR);
-            $result->bindParam(':author_id', $userID, PDO::PARAM_STR);
-            return $result->execute();
-        };
-        return false;
+        $sqlReviewStr = 'INSERT INTO reviews (content, author_id) '.'VALUES (:content, :author_id)';
+        $result = $db->prepare($sqlReviewStr);
+        $result->bindParam(':content', $content, PDO::PARAM_STR);
+        $result->bindParam(':author_id', $userID, PDO::PARAM_STR);
+        return $result->execute();
     }
 }

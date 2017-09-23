@@ -44,7 +44,8 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
-            <form  action="add" method="post" id="needs-validation" novalidate>
+
+            <form  action="add" method="post" id="needs-validation" novalidate enctype=multipart/form-data>
                 <div class="row justify-content-md-center">
                     <div class="col-md-6 mb-3">
                         <label for="validationCustom01">Ваше имя</label>
@@ -70,30 +71,12 @@
                     </div>
                 </div>
                 <div class="row justify-content-md-center">
+                    <label for="exampleFormControlFile1"></label>
+                    <input type="file" name="avatar" class="form-control-file" id="exampleFormControlFile1">
+                </div>
+                <div class="row justify-content-md-center">
                     <button class="btn btn-primary" name="submit" type="submit">Оставить отзыв</button>
                 </div>
             </form>
-
-<!--    <form action="add" method="post"">
-            <div class="col-md-6 mb-3">
-                <label for="validationDefault01">Ваше имя</label>
-                <input type="text" name="name" class="form-control" id="validationDefault01" placeholder="Ваше имя" value="" required>
-            </div>
-        <div class="col-md-6 mb-3">
-            <label for="validationDefault02">Ваша фамилия</label>
-            <input type="text" name="surname" class="form-control" id="validationDefault02" placeholder="Ваша фамилия" value="" required>
-        </div>
-            <div class="col-md-6 mb-3">
-                <label for="inputEmail3">Ваша почта</label>
-                <input type="email" name="email" class="form-control" id="inputEmail3" placeholder="E-mail" required>
-            </div>
-        <div class="col-md-6 mb-3">
-            <label for="exampleFormControlTextarea1">Сообщение</label>
-            <textarea class="form-control" name="content" id="exampleFormControlTextarea1" placeholder="Введите сообщение" rows="3"></textarea>
-        </div>
-
-        <button class="btn btn-primary" name="submit" type="submit">Оставить отзыв</button>
-
-    </form>-->
     </div>
 <?php include_once ROOT.'/views/layouts/footer.php';?>
