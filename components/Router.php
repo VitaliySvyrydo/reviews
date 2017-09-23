@@ -21,10 +21,6 @@ class Router
             return trim($_SERVER['REQUEST_URI'], '/');
         }
     }
-
-    /**
-     *
-     */
     public function run()
     {
         $uri = $this->getURI();

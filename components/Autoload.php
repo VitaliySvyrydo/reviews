@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * @param $class_name
+ */
 function __autoload($class_name)
 {
     $array_paths = array('/models/','/components/');

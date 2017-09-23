@@ -5,4 +5,3 @@ return array(
     'user' => 'homestead',
     'password' => 'secret',
 );
-?>
