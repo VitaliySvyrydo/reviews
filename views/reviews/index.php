@@ -17,12 +17,14 @@
                 </div>
             </div>
         </div>
+        <!-- Testimonial Section -->
     </div>
+    <section id="testimonial" class="section">
     <!-- Container Ends -->
 </section>
 <!-- About Us Section Ends -->
-<!-- Testimonial Section -->
-<section id="testimonial" class="section">
+
+
     <!-- Container Starts -->
     <div class="container">
         <div class="row">
@@ -32,7 +34,7 @@
                     <div class="item">
                         <div class="testimonial-inner">
                             <div class="testimonial-images col-xs-7">
-                                <img width="100px" height="100px" class="rounded-circle mx-auto d-block" src="<?php echo $reviews['image']?>" alt="">
+                                <img width="140px" height="140px" class="rounded-circle mx-auto d-block" src="<?php echo $reviews['image']?>" alt="">
                             </div>
                             <div class="testimonial-content text-center">
                                 <p>
@@ -58,7 +60,7 @@
 <?php if(isset($_GET['status'])):?>
         <div class="row">
             <div class="col-sm-12">
-                <?php if($_GET['status'] = 1):?>
+                <?php if($_GET['status'] == 1):?>
                 <div class="alert alert-success" role="alert">
                     <?php echo $_GET['message'];?>
                 </div>
